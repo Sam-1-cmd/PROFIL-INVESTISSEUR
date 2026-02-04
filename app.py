@@ -2,16 +2,29 @@ import streamlit as st
 import base64
 
 # Fonction pour convertir une image en base64
-def get_image_base64(image_path):
-    try:
-        with open(image_path, "rb") as img_file:
-            return base64.b64encode(img_file.read()).decode()
-    except FileNotFoundError:
-        return None
+from pathlib import Path
+import base64
+import mimetypes
+import streamlit as st
 
-# Charger votre photo (à placer dans le même dossier que app.py)
-# Remplacez "photo.jpg" par le nom exact de votre fichier (photo.png, photo.jpeg, etc.)
-PHOTO_BASE64 = get_image_base64("photo.jpg")  # ← MODIFIEZ ICI le nom du fichier
+def get_image_base64_from_path(path: Path):
+    if not path.exists():
+        return None, None
+    b64 = base64.b64encode(path.read_bytes()).decode()
+    mime, _ = mimetypes.guess_type(str(path))
+    if mime is None:
+        mime = "image/jpeg"
+    return b64, mime
+
+base_dir = Path(__file__).parent
+img_path = base_dir / "photo.jpg"  # ajustez si nécessaire
+
+PHOTO_BASE64, PHOTO_MIME = get_image_base64_from_path(img_path)
+if PHOTO_BASE64:
+    img_src = f"data:{PHOTO_MIME};base64,{PHOTO_BASE64}"
+    st.markdown(f'<img src="{img_src}" width="100" style="border-radius:50%;">', unsafe_allow_html=True)
+else:
+    st.warning(f"Image introuvable : {img_path}")
 
 # Configuration de la page
 st.set_page_config(
