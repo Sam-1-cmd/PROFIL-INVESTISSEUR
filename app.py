@@ -20,11 +20,11 @@ base_dir = Path(__file__).parent
 img_path = base_dir / "photo.jpg"  # ajustez si nécessaire
 
 PHOTO_BASE64, PHOTO_MIME = get_image_base64_from_path(img_path)
-if PHOTO_BASE64:
-    img_src = f"data:{PHOTO_MIME};base64,{PHOTO_BASE64}"
-    st.markdown(f'<img src="{img_src}" width="100" style="border-radius:50%;">', unsafe_allow_html=True)
-else:
-    st.warning(f"Image introuvable : {img_path}")
+# if PHOTO_BASE64:
+#     img_src = f"data:{PHOTO_MIME};base64,{PHOTO_BASE64}"
+#     st.markdown(f'<img src="{img_src}" width="100" style="border-radius:50%;">', unsafe_allow_html=True)
+# else:
+#     st.warning(f"Image introuvable : {img_path}")
 
 # Configuration de la page
 st.set_page_config(
