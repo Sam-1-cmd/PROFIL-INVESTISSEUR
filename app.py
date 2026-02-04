@@ -543,9 +543,9 @@ header_html = """
 <div class="main-header">
     <div class="header-content">
         <div class="header-text">
-            <h1>📊 QUESTIONNAIRE DE PROFIL D'INVESTISSEUR</h1>
+            <h1>📊 DECOUVRE TON PROFIL D'INVESTISSEUR</h1>
             <p>PAR SAMUEL BROU</p>
-            <p style="font-size: 0.9rem; opacity: 0.8;">Plateforme d'éducation financière et de formation à l'investissement en bourse</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">VERS LA LIBERTE FINANCIERE ➡️ 💸</p>
         </div>
 """
 
@@ -778,7 +778,7 @@ elif st.session_state.show_result:
 st.markdown("""
 <div class="footer">
     <p><strong>PAR SAMUEL BROU </strong></p>
-    <p>Plateforme d'éducation financière et de formation à l'investissement en bourse</p>
+    <p>( TRAVAIL📖 + COURAGE 🦾)*PERSEVERANCE🤞 = REUSSITE 💡</p>
     <p style="font-size: 0.8rem; margin-top: 1rem;">Version 001 du 04 Février 2026 - SAMUEL BROU</p>
 </div>
 """, unsafe_allow_html=True)
